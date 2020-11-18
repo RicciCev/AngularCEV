@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+// ESTRUCTURA GENERAL DE MÓDULOS (ARRAY DE IMPORTS).
 @NgModule({
     declarations: [],
     // aquí declararemos todos los componentes de la carpeta 'pages'.

@@ -1,3 +1,4 @@
+import { PagesModule } from './pages/pages.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagesModule // De esta manera importamos nuestro módulo PagesModule creado en la carpeta pages.
   ],
   providers: [],
   bootstrap: [AppComponent]
