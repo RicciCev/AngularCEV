@@ -11,14 +11,13 @@
             <div class="form-group">
                 <label for="user">Usuario</label>
                 <!-- mediante el evento keyup (presionar tecla) ejecuta el método especificado en el componente Login pasando como parámetro el resultado del evento keyup con la variable '$event'. -->
-                <input type="email" (keyup)="this.validateEmail($event)" class="form-control" id="user">
+                <input type="email" [(ngModel)]="this.user" (keyup)="this.validateEmail($event)" class="form-control" id="user">
             </div>
-            <div>
-                {{ this.msgUser }}
-            </div>
+            <div>{{ this.user }}</div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" [(ngModel)]="this.passw" class="form-control" id="password">
+            <div>{{ this.passw }}</div>
             </div>
             <!-- el evento 'click' gracias al databinding de vista a componente ejecuta el método ubicado en el componente login. -->
             <button type="submit" (click)="this.sendLogin()" class="btn btn-primary">Submit</button>

@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     public titleLogin: boolean;
     public msgUser: string;
 
+    public user: string;
+    public passw: string;
+
     constructor() {
         this.title = 'Este es nuestro login';
         this.titleLogin = true;
@@ -33,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     // método que gracias al databinding será llamado y ejecutado en la vista, ejemplo de databinding de vista a componente.
     public sendLogin(): void {
-        alert('Login sent');
+        console.log('El usuario es ' + this.user + ', la password es ' + this.passw);
     }
 
     public validateEmail(evento): void {
