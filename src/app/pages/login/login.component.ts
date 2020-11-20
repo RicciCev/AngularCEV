@@ -11,8 +11,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 
 export class LoginComponent implements OnInit, OnDestroy {
-    constructor() {
 
+    public title: string;
+    public titleLogin: boolean;
+    public msgUser: string;
+
+    constructor() {
+        this.title = 'Este es nuestro login';
+        this.titleLogin = true;
     }
 
     // se ejecuta cuando se inicia esta página.
@@ -22,6 +28,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     // se ejecuta cuando se termina esta página.
     ngOnDestroy() {
-        console.log('El componente se ha terminado.')
+        console.log('El componente se ha terminado.');
+    }
+
+    // método que gracias al databinding será llamado y ejecutado en la vista, ejemplo de databinding de vista a componente.
+    public sendLogin(): void {
+        alert('Login sent');
+    }
+
+    public validateEmail(evento): void {
+        const inputValue: string = evento.target.value;
+        this.msgUser = inputValue;
     }
 }
