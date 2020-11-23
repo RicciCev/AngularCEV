@@ -1,3 +1,4 @@
+import { ReverseStr } from './../../pipes/reversed.pipe';
 import { CardModule } from './../../components/card/card.module';
 import { LoginComponent } from './login.component';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
-        LoginComponent
+        LoginComponent,
+        ReverseStr  // importamos la clase pipe personalizada.
     ],
     imports: [ 
         CommonModule,
