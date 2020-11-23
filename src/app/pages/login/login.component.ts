@@ -1,3 +1,4 @@
+import { PrueabaService } from './../../services/prueba.service';
 import { Component, OnDestroy, OnInit, ɵisDefaultChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnDestroy, OnInit, ɵisDefaultChangeDetectionStrategy } from
     templateUrl: './login.component.html',
     // ficheros de estilo CSS.
     styleUrls: ['./login.component.css'],
-    providers: []
+    providers: [PrueabaService] // para que los services funcionen los debemos implementar en el array de providers.
 })
 
 export class LoginComponent implements OnInit, OnDestroy {
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     public dataPercent: number = 580;
     public dataSlice: Array<number> = [1, 2, 3, 4, 5, 6];
 
-    constructor() {
+    constructor(private pruebaService: PrueabaService) {
         this.title = 'Este es nuestro login';
         this.titleLogin = true;
         this.validatePassw = false;
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     // se ejecuta cuando se inicia esta página.
     ngOnInit() {
         console.log('El componente se ha iniciado.');
+        this.getUsersService(); // llamar al método al iniciar el componente.
     }
 
     // se ejecuta cuando se termina esta página.
@@ -61,5 +63,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     public validateEmail(evento): void {
         const inputValue: string = evento.target.value;
         this.msgUser = inputValue;
+    }
+
+    public getUsersService(): void {
+        // con el método stringify de la clase JSON devolvemos el resultado de una manera límipia con un JSON.
+        console.log('Usuario ' + JSON.stringify(this.pruebaService.getUsers()));
     }
 }
