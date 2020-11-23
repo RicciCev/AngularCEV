@@ -18,9 +18,31 @@
                 <label for="password">Password</label>
                 <input type="password" [(ngModel)]="this.passw" class="form-control" id="password">
             <div>{{ this.passw }}</div>
+            <!-- con *ngIf solo se mostrará su contenido si se cumple la condición. En este caso si la variable validatePassw que es una boolean es false se debe mostrar el texto. -->
+            <div *ngIf="!this.validatePassw">
+                La password debe de contener almenos 6 caracteres.
+            </div>
             </div>
             <!-- el evento 'click' gracias al databinding de vista a componente ejecuta el método ubicado en el componente login. -->
             <button type="submit" (click)="this.sendLogin()" class="btn btn-primary">Submit</button>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+                <!-- *ngFor es como un for loop, especificamos tipo de variable, su nombre y sobre que array debe hacer el loop, en este caso arrayOfCars y el output será la variable. -->
+                <!-- mostrará cada variable como un elemento de la lista. -->
+                <li *ngFor="let carBrand of this.arrayOfCars">{{ carBrand }}</li>
+            </ul>
+        </div>
+    </div>
 </div>
+
+<!-- Esto son pipes acompanyados de variables definidas en el componente login TS con varios valores predefinidos como currency, date, uppercase... -->
+<div>Moneda: {{ this.dataCurrency | currency: 'EUR' }}</div>
+<div>Fecha: {{ this.dataDate | date }}</div>
+<div>Decimal: {{ this.dataDecimal | number: '3.1-2' }}</div>
+<div>JSON: {{ this.dataJson | json }}</div>
+<div>Textos: {{ this.dataString | uppercase }} {{ this.dataString | lowercase }}</div>
+<div>Percent: {{ this.dataPercent | percent: '2.1-2' }}</div>
+<div>Slice: {{ this.dataSlice | slice:1:3 }}</div>
