@@ -1,3 +1,4 @@
+import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { NgModule } from '@angular/core';
 
@@ -9,7 +10,8 @@ import { NgModule } from '@angular/core';
     imports: [],
     // aquí exportamos esos componentes coleccionados en el import y así poder reutilizarlos en otras carpetas del proyecto.
     exports: [
-        LoginModule
+        LoginModule,
+        HomeModule
     ],
     providers: []
 })
