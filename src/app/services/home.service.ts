@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { AppEndPoints } from '../endpoints.component';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +11,7 @@ export class HomeService {
     // siempre que veamos un array con '$' se tratará de un subject.
     private listadoDatos$ = new Subject<Array<any>>();
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.arrayDatos = [];
     }
 
@@ -32,10 +34,8 @@ export class HomeService {
 
     /* devuelve un Observable ya que al hacer la petición get gracias al HttpClient,
     estaremos escuchando hasta que la petición se complete y nos llegue los datos. */
-    /*
     public getDataPhotos(): Observable<any> {
         let url = AppEndPoints.ENDPOINTEJEMPLO;
         return this.http.get(url);
     }
-    */
 }
