@@ -3,15 +3,18 @@
 import { CardModule } from './card/card.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavbarModule } from './navbar/navbar.module';
 
 @NgModule({
     declarations: [],
     imports: [ 
         CommonModule,
-        CardModule  // importamos el modulo del componente Card.
+        CardModule,  // importamos el modulo del componente Card.
+        NavbarModule
     ],
     exports: [
-        CardModule  // exportamos el modulo del componente Card para poder utilizarlo en otros ficheros del proyecto.
+        CardModule,  // exportamos el modulo del componente Card para poder utilizarlo en otros ficheros del proyecto.
+        NavbarModule
     ],
     providers: [],
 })

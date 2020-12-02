@@ -2,6 +2,8 @@ import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { NgModule } from '@angular/core';
 import { RegisterModule } from './register/register.module';
+import { ContactModule } from './contact/contact.module';
+import { NewsModule } from './news/news.module';
 
 // ESTRUCTURA GENERAL DE MÓDULOS (ARRAY DE IMPORTS).
 // AQUÍ METEREMOS TODOS LOS MODULOS QUE CREEMOS EN LA CARPETA PAGES. ESTE ES EL MÓDULO PRINCIPAL DE PAGES.
@@ -11,13 +13,17 @@ import { RegisterModule } from './register/register.module';
     imports: [
         LoginModule,
         HomeModule,
-        RegisterModule
+        RegisterModule,
+        ContactModule,
+        NewsModule
     ],
     // aquí exportamos esos componentes coleccionados en el import y así poder reutilizarlos en otras carpetas del proyecto.
     exports: [
         LoginModule,
         HomeModule,
-        RegisterModule
+        RegisterModule,
+        ContactModule,
+        NewsModule
     ],
     providers: []
 })
