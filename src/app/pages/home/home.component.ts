@@ -2,6 +2,7 @@ import { HomeService } from './../../services/home.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ContactForm } from './../../models/contactForm';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-home',
@@ -12,6 +13,9 @@ import { ContactForm } from './../../models/contactForm';
 export class HomeComponent implements OnInit {
 
     ContactModel = new ContactForm();
+
+    listadoDeDatos: Observable<Array<any>>;
+    listadoDatosArray: Array<any>;
 
     // EJEMPLO CALLBACK
     asincroniaCallback = (list, callback) => {
@@ -47,7 +51,20 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         // en caso de que exista error mostrará por consola el error, y sino el resultado.
-        this.asincroniaCallback([1, 2, 3, 4, 5], (error, result) => (error) ? console.log(error) : console.log(result));
+        // this.asincroniaCallback([1, 2, 3, 4, 5], (error, result) => (error) ? console.log(error) : console.log(result));
+
+        /*
+        this.asincroniaPromesa([1, 2, 3, 4, 5])
+            .then(respuesta => console.log(respuesta))
+            .catch(error => console.log(error));
+        */
+
+        // con esta línea escuchamos el observable que tenemos creado en el homeService.
+        this.listadoDeDatos = this.homeService.getDatos();
+
+        /* nos subscribimos a ese observable, y lo que reciba (datos que reciba el arrayDatos de homeService),
+        lo guarda en el listadoDatosArray y podrá actualizar los arrays, que cuando pase algo guarda los datos nuevos. */
+        this.listadoDeDatos.subscribe(datos => this.listadoDatosArray = datos);
     }
 
     onSubmit(f: NgForm) {

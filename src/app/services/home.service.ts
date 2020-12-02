@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
     providedIn: 'root'
 })
 export class HomeService {
-        public arrayDatos: Array<any>;
+    public arrayDatos: Array<any>;
     // siempre que veamos un array con '$' se tratará de un subject.
     private listadoDatos$ = new Subject<Array<any>>();
 
