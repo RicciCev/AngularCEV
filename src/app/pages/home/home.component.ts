@@ -9,12 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+    public arrayDatosPhotos: Array<any>;
+
     constructor(private homeService: HomeService) { }
 
     ngOnInit() {
         this.homeService.getDataPhotos().subscribe(
             response => {
-                console.log(JSON.stringify(response));
+                this.arrayDatosPhotos = response;
             },
             error => {
                 console.log('Error ' + JSON.stringify(error));
