@@ -11,34 +11,45 @@
             <div class="form-group">
                 <label for="user">Usuario</label>
                 <!-- mediante el evento keyup (presionar tecla) ejecuta el método especificado en el componente Login pasando como parámetro el resultado del evento keyup con la variable '$event'. -->
-                <input type="email" [(ngModel)]="this.user" (keyup)="this.validateEmail($event)" class="form-control" id="user">
+                <input type="email" [(ngModel)]="this.user" (keyup)="this.validateEmail($event)" class="form-control"
+                    id="user">
             </div>
             <div>{{ this.user }}</div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" [(ngModel)]="this.passw" class="form-control" id="password">
-            <div>{{ this.passw }}</div>
-            <!-- con *ngIf solo se mostrará su contenido si se cumple la condición. En este caso si la variable validatePassw que es una boolean es false se debe mostrar el texto. -->
-            <div *ngIf="!this.validatePassw">
-                La password debe de contener almenos 6 caracteres.
-            </div>
+                <div class="mt-1">{{ this.passw }}</div>
+                <!-- con *ngIf solo se mostrará su contenido si se cumple la condición. En este caso si la variable validatePassw que es una boolean es false se debe mostrar el texto. -->
+                <div *ngIf="!this.validatePassw">
+                    La password debe de contener almenos 6 caracteres.
+                </div>
             </div>
             <!-- el evento 'click' gracias al databinding de vista a componente ejecuta el método ubicado en el componente login. -->
             <button type="submit" (click)="this.sendLogin()" class="btn btn-primary">Submit</button>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-md-12">
-            <ul>
-                <!-- *ngFor es como un for loop, especificamos tipo de variable, su nombre y sobre que array debe hacer el loop, en este caso arrayOfCars y el output será la variable. -->
-                <!-- mostrará cada variable como un elemento de la lista. -->
-                <li *ngFor="let carBrand of this.arrayOfCars">{{ carBrand }}</li>
-            </ul>
+            <button (click)="this.goToRegister()" class="btn btn-primary">Registrate</button>
         </div>
     </div>
 </div>
 
+<!-- 
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+                <!- - *ngFor es como un for loop, especificamos tipo de variable, su nombre y sobre que array debe hacer el loop, en este caso arrayOfCars y el output será la variable. - ->
+                <!- - mostrará cada variable como un elemento de la lista. - ->
+                <li *ngFor="let carBrand of this.arrayOfCars">{{ carBrand }}</li>
+            </ul>
+        </div>
+    </div>
+-->
+
 <!-- Esto son pipes acompanyados de variables definidas en el componente login TS con varios valores predefinidos como currency, date, uppercase... -->
+<!-- 
 <div>Moneda: {{ this.dataCurrency | currency: 'EUR' }}</div>
 <div>Fecha: {{ this.dataDate | date }}</div>
 <div>Decimal: {{ this.dataDecimal | number: '3.1-2' }}</div>
@@ -46,3 +57,4 @@
 <div>Textos: {{ this.dataString | uppercase }} {{ this.dataString | reversed }}</div>
 <div>Percent: {{ this.dataPercent | percent: '2.1-2' }}</div>
 <div>Slice: {{ this.dataSlice | slice:1:3 }}</div>
+-->

@@ -1,5 +1,6 @@
 import { PrueabaService } from './../../services/prueba.service';
 import { Component, OnDestroy, OnInit, ɵisDefaultChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     // selector es el nombre de este componente.
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     public dataPercent: number = 580;
     public dataSlice: Array<number> = [1, 2, 3, 4, 5, 6];
 
-    constructor(private pruebaService: PrueabaService) {
+    // inyectamos el service y el Router.
+    constructor(private pruebaService: PrueabaService, private router: Router) {
         this.title = 'Este es nuestro login';
         this.titleLogin = true;
         this.validatePassw = false;
@@ -68,5 +70,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     public getUsersService(): void {
         // con el método stringify de la clase JSON devolvemos el resultado de una manera límipia con un JSON.
         console.log('Usuario ' + JSON.stringify(this.pruebaService.getUsers()));
+    }
+
+    public goToRegister(): void {
+        this.router.navigate(['/register']);
     }
 }

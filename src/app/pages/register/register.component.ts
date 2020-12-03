@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ContactForm } from 'src/app/models/contactForm';
 import { HomeService } from 'src/app/services/home.service';
@@ -7,7 +8,8 @@ import { HomeService } from 'src/app/services/home.service';
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
-    styleUrls: ['./register.component.css']
+    styleUrls: ['./register.component.css'],
+    providers: [HomeService]
 })
 export class RegisterComponent implements OnInit {
     ContactModel = new ContactForm();
@@ -45,7 +47,7 @@ export class RegisterComponent implements OnInit {
         return promise;
     }
 
-    constructor(private homeService: HomeService) { }
+    constructor(private homeService: HomeService, private router: Router) { }
 
     ngOnInit(): void { 
         // en caso de que exista error mostrará por consola el error, y sino el resultado.
@@ -67,5 +69,9 @@ export class RegisterComponent implements OnInit {
 
     onSubmit(f: NgForm) {
         this.homeService.sendFormContact(f);
+    }
+
+    public goToLogin(): void {
+        this.router.navigate(['login']);
     }
 }

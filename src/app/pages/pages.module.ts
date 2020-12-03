@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RegisterModule } from './register/register.module';
 import { ContactModule } from './contact/contact.module';
 import { NewsModule } from './news/news.module';
+import { DetailNewsModule } from './news/detailnews/detailnews.module';
 
 // ESTRUCTURA GENERAL DE MÓDULOS (ARRAY DE IMPORTS).
 // AQUÍ METEREMOS TODOS LOS MODULOS QUE CREEMOS EN LA CARPETA PAGES. ESTE ES EL MÓDULO PRINCIPAL DE PAGES.
@@ -23,7 +24,8 @@ import { NewsModule } from './news/news.module';
         HomeModule,
         RegisterModule,
         ContactModule,
-        NewsModule
+        NewsModule,
+        DetailNewsModule
     ],
     providers: []
 })
