@@ -1,6 +1,7 @@
 import { PrueabaService } from './../../services/prueba.service';
 import { Component, OnDestroy, OnInit, ɵisDefaultChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
     // selector es el nombre de este componente.
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     public dataString: string = 'Prueba';
     public dataPercent: number = 580;
     public dataSlice: Array<number> = [1, 2, 3, 4, 5, 6];
+
+    public entorno: string = environment.API_KEY;
 
     // inyectamos el service y el Router.
     constructor(private pruebaService: PrueabaService, private router: Router) {
