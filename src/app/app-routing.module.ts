@@ -22,15 +22,18 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'contact',
-    component: ContactComponent
-  },
-  {
-    path: 'news',
-    component: NewsComponent
+    component: HomeComponent,
+    // contact y news son rutas hijas que solo son accesibles a través del home.
+    children: [
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
+      {
+        path: 'news',
+        component: NewsComponent
+      }
+    ]
   }
 ];
 
