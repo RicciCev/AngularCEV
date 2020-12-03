@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContactComponent } from './pages/contact/contact.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { NewsComponent } from './pages/news/news.component';
+import { DetailNewsComponent } from './pages/news/detailnews/detailnews.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
       {
         path: 'news',
         component: NewsComponent
+      },
+      {
+        // especificamos que al acceder esta ruta tendrá una subruta (parámetro) que será un id para identificar la noticia concreta.
+        path: 'detailnews/:id',
+        component: DetailNewsComponent
       }
     ]
   }

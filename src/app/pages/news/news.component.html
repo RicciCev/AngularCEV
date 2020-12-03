@@ -5,7 +5,8 @@
                 <img [src]="item.thumbnailUrl" class="card-img-top imagenCard" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
-                    <a class="btn btn-primary">Ver</a>
+                    <!-- recordar que es item porque es el nombre de cada elemento del array de photos que obtenemos de la petición http. -->
+                    <a (click)="this.goToViewDetail(item.id)" class="btn btn-primary">Ver</a>
                 </div>
             </div>
         </div>
